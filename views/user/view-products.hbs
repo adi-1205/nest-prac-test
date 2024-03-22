@@ -1,0 +1,20 @@
+{{> user-nav}}
+
+<div class="container mt-4">
+    <div class="row">
+        {{> user-product-list}}
+
+    </div>
+</div>
+
+<div id="pagination-area">
+
+</div>
+
+{{> scripts}}
+<script src="/javascripts/pagination.js"></script>
+<script>
+    $(document).ready(function () {
+        Handlers.viewProductsHandler()
+    })
+</script>

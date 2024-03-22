@@ -1,0 +1,22 @@
+<input type="hidden" id="count" value="{{count}}">
+<tbody>
+    {{#each orders}}
+    <tr>
+        <td><img src="/{{this.image}}" alt="Product Image" class="img-fluid" style="height: 50px; object-fit: contain;">
+        </td>
+        <td>{{this.name}}</td>
+        <td>{{this.orderDate}}</td>
+        <td>
+            <select>
+                <option value="pending" {{#if isPending}}selected{{/if}}>Pending</option>
+                <option value="delivered" {{#if isDelivered}}selected{{/if}}>Delivered</option>
+            </select>
+        </td>
+        <td>
+            <button class="btn btn-primary update" data-id="{{this.id}}">
+                Update
+            </button>
+        </td>
+    </tr>
+    {{/each}}
+</tbody>

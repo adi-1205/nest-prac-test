@@ -1,0 +1,15 @@
+<input type="hidden" disabled value="{{count}}" id="count">
+{{#each products}}
+<div class="col-md-3 mb-4">
+    <a href="/products/view/{{this.id}}">
+        <div class="card">
+            <img src="/{{image}}" class="card-img-top" alt="Product Image" style="height: 150px;object-fit: contain;">
+            <div class="card-body">
+                <h5 class="card-title">{{this.name}}</h5>
+                <p class="card-text mb-0"><b>Price:</b> {{this.price}}</p>
+                <p class="card-text"><b>Qty:</b> {{this.quantity}}</p>
+            </div>
+        </div>
+    </a>
+</div>
+{{/each}}

@@ -1,0 +1,108 @@
+{{> admin-nav}}
+<div class="container-fluid text-end mt-4">
+    <button type="button" class="btn btn-primary" id="create-modal">
+        Create Product
+    </button>
+    <button type="button" id="open-modal" style="display: none;" class="btn btn-primary" data-bs-toggle="modal"
+        data-bs-target="#product-modal">
+        Create Product
+    </button>
+</div>
+
+
+<div class="modal fade" id="product-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modal-title">Create Product</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <form id="create-product-form" enctype="multipart/form-data">
+                        <input type="hidden" id="id">
+                        <div class="form-group mb-3">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="size">Size</label>
+                            <input type="text" class="form-control" id="size" name="size" required>
+                        </div>
+                        <div class="form-group mb-3 image-slides">
+                            <label for="image">Image</label>
+                            <input type="file" class="form-control-file" id="image" name="image" required
+                                accept="image/*" multiple>
+
+
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="colour">Colour</label>
+                            <input type="text" class="form-control" id="colour" name="colour" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="price">Price</label>
+                            <input type="number" class="form-control" id="price" name="price" step="0.01" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="quantity">Quantity</label>
+                            <input type="number" class="form-control" id="quantity" name="quantity" required>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer" id="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="modal-done"></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <h2 class="mb-3">Product Details</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th style="cursor: pointer;">Price <span data-sort-order="DESC"><i
+                            class="fa-solid fa-caret-down"></i></span></th>
+                <th>Available Quantity</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{> admin-product-list}}
+        </tbody>
+    </table>
+</div>
+
+<div id="pagination-area">
+
+</div>
+
+
+{{> scripts}}
+<script src="/javascripts/pagination.js"></script>
+<script>
+    $(document).ready(function () {
+        Handlers.createProductHandler()
+    })
+</script>
+
+{{!-- <div id="carouselExample" class="carousel carousel-dark slide">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="/3b54e4f6e2bdb7c4ff2743262baa58caABCD.JPG" class="d-block w-100" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div> --}}
